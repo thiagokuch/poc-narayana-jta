@@ -18,10 +18,10 @@ package br.com.poc.service;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import br.com.poc.entity.Account;
 import br.com.poc.repository.AccountRepository;
@@ -34,7 +34,7 @@ public class AccountService {
 	@Autowired
 	private AccountRepository accountRepository;
 
-	@Transactional(propagation=Propagation.REQUIRED)
+	 @Transactional(Transactional.TxType.NOT_SUPPORTED)
 	public Account create() {
 		return this.accountRepository.save(new Account("Remote" + atomicInteger.incrementAndGet()));
 	}

@@ -10,6 +10,8 @@
 		<properties>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.transaction.jta.platform" value="JBossTS"/>
+           <!--  <property name="hibernate.connection.provider_class" value="org.jboss.narayana.quickstart.jta.TransactionalConnectionProvider" /> -->
         </properties>
 	</persistence-unit>
 </persistence>
